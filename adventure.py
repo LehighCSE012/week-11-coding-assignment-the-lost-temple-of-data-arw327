@@ -8,7 +8,7 @@ import pandas as pd
 import re
 
 def load_artifact_data(excel_filepath):
-    """
+    '''
     Reads artifact data from a specific sheet ('Main Chamber') in an Excel file,
     skipping the first 3 rows.
 
@@ -17,14 +17,14 @@ def load_artifact_data(excel_filepath):
 
     Returns:
         pandas.DataFrame: DataFrame containing the artifact data.
-    """
+    '''
     df=pd.read_excel(excel_filepath, sheet_name = 'Main Chamber', skiprows=3)
     return df
     # Hint: Use pd.read_excel, specify sheet_name and skiprows
     # return the resulting DataFrame
 
 def load_location_notes(tsv_filepath):
-    """
+    '''
     Reads location data from a Tab-Separated Value (TSV) file.
 
     Args:
@@ -32,7 +32,7 @@ def load_location_notes(tsv_filepath):
 
     Returns:
         pandas.DataFrame: DataFrame containing the location data.
-    """
+    '''
     df=pd.read_csv(tsv_filepath, sep='\t')
     return df
     # Hint: Use pd.read_csv, specify the separator for tabs ('\t')
@@ -40,7 +40,7 @@ def load_location_notes(tsv_filepath):
     # return the resulting DataFrame
 
 def extract_journal_dates(journal_text):
-    """
+    '''
     Extracts all dates in MM/DD/YYYY format from the journal text.
 
     Args:
@@ -48,7 +48,7 @@ def extract_journal_dates(journal_text):
 
     Returns:
         list[str]: A list of date strings found in the text.
-    """
+    '''
     df = re.findall(r"\d{2}/\d{2}/\d{4}", journal_text)
     return df
     # Hint: Use re.findall with a raw string pattern for MM/DD/YYYY format.
@@ -57,7 +57,7 @@ def extract_journal_dates(journal_text):
     # return the list of found dates
 
 def extract_secret_codes(journal_text):
-    """
+    '''
     Extracts all secret codes in AZMAR-XXX format (XXX are digits) from the journal text.
 
     Args:
@@ -65,7 +65,7 @@ def extract_secret_codes(journal_text):
 
     Returns:
         list[str]: A list of secret code strings found in the text.
-    """
+    '''
     df = re.findall(r"AZMAR-\d{3}", journal_text)
     return df
     # Hint: Use re.findall with a raw string pattern for AZMAR- followed by 3 digits.
@@ -116,4 +116,3 @@ if __name__ == '__main__':
 
     except FileNotFoundError:
         print(f"Error: File not found at {journal_file}")
-
