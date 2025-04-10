@@ -4,8 +4,8 @@
 #pylint will not like except statements, he removed all of them
 #to read in locations part, read.csv()
 
-import pandas as pd
 import re
+import pandas as pd
 
 def load_artifact_data(excel_filepath):
     '''
@@ -77,9 +77,9 @@ def extract_secret_codes(journal_text):
 # --- Optional: Main execution block for your own testing ---
 if __name__ == '__main__':
     # Define file paths (adjust if your files are located elsewhere)
-    excel_file = 'artifacts.xlsx'
-    tsv_file = 'locations.tsv'
-    journal_file = 'journal.txt'
+    EXCEL_FILE = 'artifacts.xlsx'
+    TSV_FILE = 'locations.tsv'
+    JOURNAL_FILE = 'journal.txt'
 
     print(f"--- Loading Artifact Data from {excel_file} ---")
     try:
