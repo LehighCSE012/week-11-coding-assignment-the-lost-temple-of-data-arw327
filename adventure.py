@@ -49,7 +49,7 @@ def extract_journal_dates(journal_text):
     Returns:
         list[str]: A list of date strings found in the text.
     '''
-    df = re.findall(r"(0[1-9]|1[0-2])/(0[1-9]|[12]\d|3[01])/\d{4}", journal_text)
+    df = re.findall(r"(?:0[1-9]|1[0-2])/(?:0[1-9]|[12]\d|3[01])/\d{4}", journal_text)
     return df
     # Hint: Use re.findall with a raw string pattern for MM/DD/YYYY format.
     # Pattern idea: r"\d{2}/\d{2}/\d{4}"
